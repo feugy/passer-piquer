@@ -1,0 +1,22 @@
+version: '2'
+services:
+  web:
+    image: prestashop/prestashop
+    ports:
+    - "8080:80"
+    links:
+    - db
+    environment:
+      DB_SERVER: db
+      DB_PASSWD: password
+      PS_LANGUAGE: fr
+      PS_COUNTRY: fr
+      PS_FOLDER_ADMIN: backoffice
+  db:
+    image: mysql:latest
+    ports:
+    - "3306:3306"
+    volumes:
+    - D:\MySQL\data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
