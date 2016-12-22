@@ -21,3 +21,35 @@ Ouvrir un shell sur un des conteneurs:
 
 > docker exec -it passerpiquer_web_1 /bin/bash
 
+Dossiers appartenant au user www-data
+
+> html/modules
+> html/override
+> html/themes
+
+Dossier d'images
+
+> html/img
+
+Paramètres:
+
+> rm html/app/config/parameters.php
+> html/app/config/parameters.yml
+```
+parameters:
+  database_host: db
+  database_port: ~
+  database_name: passer_piquer
+  database_user: pp_user
+  database_password: password
+  database_prefix: ps_
+  database_engine: InnoDB
+  mailer_transport: smtp
+  mailer_host: 127.0.0.1
+  mailer_user: ~
+  mailer_password: ~
+  ps_caching: CacheMemcache
+  ps_cache_enable: false
+  ps_creation_date: 2016-12-21
+  locale: fr-FR
+```

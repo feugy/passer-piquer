@@ -1,22 +1,31 @@
 version: '2'
 services:
   web:
-    image: prestashop/prestashop
+    build: .
     ports:
     - "8080:80"
     links:
     - db
     environment:
       DB_SERVER: db
+      DB_NAME: passer_piquer
+      DB_USER: pp_user
       DB_PASSWD: password
-      PS_LANGUAGE: fr
-      PS_COUNTRY: fr
+      ADMIN_MAIL: laetitia.simoninfeugas@gmail.com
+      ADMIN_PASSWD: password
       PS_FOLDER_ADMIN: backoffice
+    volumes:
+    # images, the only configuratble assets not stored in DB
+    - D:\Workspaces\perso\passer-piquer\img:/var/www/html/img
   db:
     image: mysql:latest
     ports:
     - "3306:3306"
     volumes:
-    - D:\MySQL\data:/var/lib/mysql
+    # database content must be persisted
+    - D:\MySQL:/var/lib/mysql
     environment:
+      MYSQL_DATABASE: passer_piquer
+      MYSQL_USER: pp_user
+      MYSQL_PASSWORD: password
       MYSQL_ROOT_PASSWORD: password
