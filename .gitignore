@@ -1,1 +1,7 @@
 img/
+html/
+themes/**/assets/css/*
+themes/**/assets/js/*
+themes/**/_dev/node_modules/
+themes/classic
+themes/StarterTheme

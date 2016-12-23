@@ -2,6 +2,7 @@ version: '2'
 services:
   web:
     build: .
+    #image: feugy/passer-piquer-ps:latest
     ports:
     - "8080:80"
     links:
@@ -15,8 +16,10 @@ services:
       ADMIN_PASSWD: password
       PS_FOLDER_ADMIN: backoffice
     volumes:
-    # images, the only configuratble assets not stored in DB
+    # images the only configuratble assets not stored in DB
     - D:\Workspaces\perso\passer-piquer\img:/var/www/html/img
+    # theme, for development
+    - D:\Workspaces\perso\passer-piquer\themes:/var/www/html/themes
   db:
     image: mysql:latest
     ports:
